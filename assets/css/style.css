@@ -154,6 +154,7 @@ body {
 
 #expertise {
     background: url("../img/expertise/bg.jpg");
+    background-size: cover;
     width: 100%;
 }
 

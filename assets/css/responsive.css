@@ -32,7 +32,7 @@
     }
 
     #about {
-        height: 100vh;
+        height: unset;
     }
 
     #about img {

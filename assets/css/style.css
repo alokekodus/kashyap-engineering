@@ -52,7 +52,7 @@ body {
 
 #banner {
     background: url("../img/banner/banner.png");
-    height: 90vh;
+    height: 100vh;
     background-position: center;
     background-size: cover;
 }

@@ -674,26 +674,22 @@
                             <form id="form">
                                 <div class="mb-3">
                                     <input type="name" class="form-control" id="name" name="name"
-                                        placeholder="Your Name">
+                                        placeholder="Your Name" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Your Email">
-                                </div>
-
-                                <div class="mb-3">
-                                    <select class="form-select" aria-label="Select One">
-                                        <option selected readonly>Select One</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                        placeholder="Your Email" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="phone" name="phone"
-                                        placeholder="Your Phone Number">
+                                        placeholder="Your Phone Number" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Your Message"></textarea required>
                                 </div>
 
                                 <button type="submit" class="btn form-submit text-uppercase text-12 fw-bold">Submit
@@ -709,7 +705,7 @@
 
     <!-- Map -->
     <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.4697143317394!2d91.76836681492797!3d26.116223600209505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5ffcd50163b9%3A0xddddd3dd49ab95c1!2sKashyap%20Engineering%20%26%20Consultant!5e0!3m2!1sen!2sin!4v1632467175678!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.4697143317394!2d91.76836681492797!3d26.116223600209505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5ffcd50163b9%3A0xddddd3dd49ab95c1!2sKashyap%20Engineering%20%26%20Consultant!5e0!3m2!1sen!2sin!4v1632467175678!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
 
@@ -719,8 +715,8 @@
             <p class="text-20 text-bold-900 text-uppercase text-center">kashyap engineering</p>
             <div class="col-md-6 mx-auto">
 
-                <p class="text-center text-14 line-height-5 text-main">+62 989-554-1979</p>
-                <p class="text-center text-14 line-height-5">example@gmail.com</p>
+                <p class="text-center text-14 line-height-5 text-main"><a class="text-decoration-none text-main" href="tel:970788776">+91 970788776</a></p>
+                <p class="text-center text-14 line-height-5"><a class="text-decoration-none text-main" href="mailto:kashyapengineering5@gmail.com">kashyapengineering5@gmail.com</a></p>
             </div>
 
             <div class="col-md-5 text-center mx-auto py-4" id="footer-links">
@@ -749,7 +745,7 @@
                                 Technologies</a></p>
                     </div>
 
-                    <div class="col-md-5 col-12">
+                    <div class="col-md-5 col-12 d-none">
                         <ul id="footer-nav-links">
                             <li class="text-uppercase text-12"><a href="#">Facebook.</a></li>
                             <li class="text-uppercase text-12"><a href="#">Twitter.</a></li>

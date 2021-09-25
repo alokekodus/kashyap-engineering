@@ -84,7 +84,8 @@
 
         <div class="container h-100 d-flex justify-content-center align-items-center">
             <div class="col-md-6 mx-auto" style="margin-top: -60px;">
-                <p class="text-72 text-bold-900 text-center text-light text-uppercase" style="text-shadow: #111 1px 0 10px;">Mitigate risks with fire</p>
+                <p class="text-72 text-bold-900 text-center text-light text-uppercase"
+                    style="text-shadow: #111 1px 0 10px;">Mitigate risks with fire</p>
             </div>
         </div>
     </div>
@@ -97,7 +98,8 @@
                 <div class="row">
                     <div class="col-md-6 flex-center-col">
                         <div>
-                            <p class="text-30 text-bold-900 text-center text-md-start" id="about-info">About Kashyap Engineering</p>
+                            <p class="text-30 text-bold-900 text-center text-md-start" id="about-info">About Kashyap
+                                Engineering</p>
                             <!-- <p class="text-30 text-bold-900">Reliable engineering takes many forms.</p> -->
                             <p>With an incidence of an outbreak of fire, the foremost responsibility is to have a great
                                 fire fighting mechanism. Kashyap Engineering, a world-class service provider in fire
@@ -108,13 +110,18 @@
 
                         <!-- About the owner -->
                         <div>
-                            <p class="text-30 text-bold-900 text-center text-md-start" id="about-info">About the owner</p>
+                            <p class="text-30 text-bold-900 text-center text-md-start" id="about-info">About the owner
+                            </p>
                             <div class="d-md-flex">
                                 <div class="text-center flex-center">
                                     <img class="me-3" src="assets/img/owner.jpg" alt="owner"
                                         style="width: 100px; height: 100px; border-radius: 50%; margin-top: 0;">
                                 </div>
-                                <p>Kashyap Engineering, a leading fire fighting equipment manufacturer, started operations in the year 2019 under the able guidance of Mr. Ranjit Shah.  Mr. Shah, an entrepreneur who holds a total of 12 years of experience in the fire fighting industry, wants its organization to make a mark for itself in the fire fighting industry. </p>
+                                <p>Kashyap Engineering, a leading fire fighting equipment manufacturer, started
+                                    operations in the year 2019 under the able guidance of Mr. Ranjit Shah. Mr. Shah, an
+                                    entrepreneur who holds a total of 12 years of experience in the fire fighting
+                                    industry, wants its organization to make a mark for itself in the fire fighting
+                                    industry. </p>
                             </div>
                         </div>
                     </div>
@@ -661,7 +668,7 @@
                                     <img src="assets/img/clients/donbosco.png" width="150" alt="Clients">
                                     <!-- <p class="fw-bold">Assam Don Bosco University, Sonapur, Assam</p> -->
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -694,6 +701,10 @@
 
                                 <button type="submit" class="btn form-submit text-uppercase text-12 fw-bold">Submit
                                     now</button>
+
+                                    <div id="alertCntct" class="alert" style="display:none;">
+                                        <span id="mailMsg"></span>
+                                    </div>
                             </form>
                         </div>
                     </div>
@@ -762,6 +773,65 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+        </script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	
+        <script>
+            $("#Contactform").on("submit", function (e) {
+                e.preventDefault();
+
+                $('#contact_button').prop('disable', true);
+                $("#contact_button").html('Sending');
+
+                var formData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    phone: $("#phone").val(),
+                    message: $("#message").val(),
+
+                }
+
+                // var email = $("#email").val();
+
+                // if (validationEmail($("#email").val())) {
+                // console.log('correct email '+email);
+
+                $.ajax({
+                    type: "POST",
+                    url: 'mailscript.php',
+                    data: formData,
+                    dataType: 'json',
+                    async: false,
+                    encode: true
+                }).done(function (data) {
+                    if (data['msgType'] == true) {
+                        $("#alertCntct").show();
+                        $('#alertCntct').addClass('alert-success');
+                        $('#mailMsg').text(data['msg']);
+                        $('#contact_button').prop('disable', false);
+                        $("#contact_button").html('Submit Now');
+                        setTimeout(function () {
+                            $("#alertCntct").hide();
+                        }, 2000);
+                        $('#Contactform')[0].reset();
+                    } else {
+                        $("#alertCntct").show();
+                        $('#alertCntct').addClass('alert-danger');
+                        $('#mailMsg').text(data['msg']);
+                        setTimeout(function () {
+                            $("#alertCntct").hide();
+                        }, 2000);
+                    }
+
+                    console.log(data);
+                });
+
+            });
         </script>
 </body>
 
